@@ -37,7 +37,7 @@ section{padding:78px 0}.head{display:grid;grid-template-columns:1fr .55fr;gap:36
 .contact{position:relative;overflow:hidden;padding:62px 24px;text-align:center;border-radius:38px;color:#fff;background:linear-gradient(125deg,#170d1a,#5a1d60 55%,#8f4d09)}.contact h2{font:600 clamp(2.6rem,6vw,5.7rem)/.98 Poppins;letter-spacing:-.065em;margin:0}.contact p{opacity:.72}.contact-links{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:22px}
 footer{padding:28px 0;color:var(--muted);font-size:.82rem}.foot{display:flex;justify-content:space-between}
 .modal{position:fixed;inset:0;z-index:100;display:none;place-items:center;padding:16px;background:rgba(6,4,7,.78);backdrop-filter:blur(14px)}.modal.open{display:grid}.dialog{width:min(1140px,100%);max-height:94svh;overflow:auto;border-radius:30px;background:var(--solid);box-shadow:0 40px 120px rgba(0,0,0,.5)}.modalbar{position:sticky;top:0;z-index:4;display:flex;justify-content:flex-end;padding:14px;background:linear-gradient(var(--solid),color-mix(in srgb,var(--solid) 84%,transparent))}.close{width:43px;height:43px;border:1px solid var(--line);border-radius:50%;background:var(--panel);cursor:pointer}
-.modalbody{padding:0 28px 36px}.gallery{position:relative;aspect-ratio:16/9;border-radius:24px;overflow:hidden;background:#09090a}.gallery img{height:100%;object-fit:contain}.gallery-nav{position:absolute;inset:50% 14px auto;display:flex;justify-content:space-between;transform:translateY(-50%);pointer-events:none}.gallery-nav button{pointer-events:auto;width:42px;height:42px;border:0;border-radius:50%;background:rgba(0,0,0,.58);color:#fff;cursor:pointer}.thumbs{display:flex;gap:9px;overflow:auto;margin:12px 0 32px}.thumb{flex:0 0 120px;border:2px solid transparent;border-radius:10px;overflow:hidden;padding:0;background:none;opacity:.58}.thumb.active{border-color:var(--a);opacity:1}.thumb img{aspect-ratio:16/9;object-fit:cover}
+.modalbody{padding:0 28px 36px}.gallery{position:relative;aspect-ratio:16/9;border-radius:24px;overflow:hidden;background:#09090a;touch-action:pan-y}.gallery img{height:100%;object-fit:contain;transition:opacity .18s}.gallery.loading img{opacity:.45}.gallery-nav{position:absolute;inset:50% 14px auto;display:flex;justify-content:space-between;transform:translateY(-50%);pointer-events:none}.gallery-nav button{pointer-events:auto;width:48px;height:48px;border:0;border-radius:50%;background:rgba(0,0,0,.66);color:#fff;cursor:pointer;font-size:1.15rem}.gallery-count{position:absolute;right:14px;bottom:14px;padding:7px 11px;border-radius:999px;color:#fff;background:rgba(0,0,0,.68);font-size:.78rem;letter-spacing:.06em}.gallery-swipe{display:none;position:absolute;left:14px;bottom:14px;color:rgba(255,255,255,.78);font-size:.72rem}.thumbs{display:flex;gap:9px;overflow:auto;margin:12px 0 32px;padding-bottom:3px;scroll-snap-type:x proximity}.thumb{flex:0 0 120px;border:2px solid transparent;border-radius:10px;overflow:hidden;padding:0;background:none;opacity:.58;scroll-snap-align:start}.thumb.active{border-color:var(--a);opacity:1}.thumb img{aspect-ratio:16/9;object-fit:cover}
 .detail-head{display:grid;grid-template-columns:1.15fr .85fr;gap:35px}.detail-head h2{font:600 clamp(2.2rem,5vw,4.6rem)/1 Poppins;letter-spacing:-.06em;margin:10px 0 18px}.detail-head p{color:var(--muted);line-height:1.85}.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:23px}.fact{padding:15px;border-radius:16px;background:rgba(156,39,176,.07)}.fact small{display:block;color:var(--muted);margin-bottom:6px}.process-title{font:600 1.7rem Poppins;margin:42px 0 18px}.process{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.step{padding:20px;border:1px solid var(--line);border-radius:20px}.step b{color:var(--p)}.step h4{margin:9px 0 6px}.step p{margin:0;color:var(--muted);line-height:1.65;font-size:.86rem}
 .reveal{opacity:1;transform:none;transition:opacity .55s ease,transform .55s ease}.reveal.on{opacity:1;transform:none}
 @media(max-width:860px){.navlinks{display:none}.hero-grid,.head,.profile-grid,.skill-grid,.detail-head{grid-template-columns:1fr}.hero-visual{min-height:430px}.project,.project:nth-child(even){grid-template-columns:1fr}.project:nth-child(even) .project-img{order:0}.project-img{min-height:310px}.method{grid-template-columns:repeat(2,1fr)}.facts{grid-template-columns:1fr}.process{grid-template-columns:1fr}}
@@ -56,6 +56,7 @@ footer{padding:28px 0;color:var(--muted);font-size:.82rem}.foot{display:flex;jus
 .video-hint:before{content:"▶";display:grid;place-items:center;width:28px;height:28px;border-radius:50%;color:#fff;background:linear-gradient(135deg,var(--p),var(--a))}
 .video-fallback{align-self:flex-start;margin-top:12px;color:#FFB74D;font-size:.78rem;text-decoration:underline;text-underline-offset:3px}
 @media(max-width:760px){.video-feature.show{grid-template-columns:1fr}.video-info{padding:18px}}
+@media(max-width:760px){header.scrolled,.panel,.modal{backdrop-filter:none}.gallery-nav{inset-inline:8px}.gallery-nav button{width:46px;height:46px}.gallery-swipe{display:block}.gallery-count{right:10px;bottom:10px}.thumb{flex-basis:96px}}
 
 .video-error{display:none;margin-top:12px;padding:10px 12px;border:1px solid rgba(255,152,0,.35);border-radius:12px;color:#FFB74D;background:rgba(255,152,0,.08);font-size:.8rem;line-height:1.55}
 .video-error.show{display:block}
@@ -218,7 +219,7 @@ footer{padding:28px 0;color:var(--muted);font-size:.82rem}.foot{display:flex;jus
 <section id="contact"><div class="wrap"><div class="contact reveal"><h2>Make culture<br>feel contemporary.</h2><p>项目合作、实习、展览与数字体验设计交流。</p><div class="contact-links"><a class="btn primary" href="mailto:1773941065@qq.com">1773941065@qq.com</a><a class="btn" href="tel:+8619897676715">+86 198 9767 6715</a><span class="btn">WeChat · linxxx0127</span></div></div></div></section>
 </main><footer><div class="wrap foot"><strong>LIN XUAN · PORTFOLIO 2026</strong><span>Culture / Media / Product / Interaction</span></div></footer>
 
-<div class="modal" id="modal"><div class="dialog"><div class="modalbar"><button class="close" id="close">✕</button></div><div class="modalbody"><div class="gallery"><img id="bigImg" alt=""><div class="gallery-nav"><button id="prev">←</button><button id="next">→</button></div></div><div class="thumbs" id="thumbs"></div>
+<div class="modal" id="modal"><div class="dialog"><div class="modalbar"><button class="close" id="close" aria-label="关闭项目">✕</button></div><div class="modalbody"><div class="gallery" id="gallery"><img id="bigImg" alt=""><div class="gallery-nav"><button id="prev" aria-label="上一张图片">←</button><button id="next" aria-label="下一张图片">→</button></div><div class="gallery-swipe">左右滑动查看更多</div><div class="gallery-count"><span id="galleryIndex">1</span> / <span id="galleryTotal">1</span></div></div><div class="thumbs" id="thumbs" aria-label="项目图片缩略图"></div>
 <div class="video-feature" id="videoFeature">
   <div class="video-stage">
     <video id="projectVideo" controls playsinline preload="metadata" webkit-playsinline></video>
@@ -243,6 +244,9 @@ const filters = $("filters");
 const projectsEl = $("projects");
 const modal = $("modal");
 const bigImg = $("bigImg");
+const gallery = $("gallery");
+const galleryIndex = $("galleryIndex");
+const galleryTotal = $("galleryTotal");
 const thumbs = $("thumbs");
 const mMeta = $("mMeta");
 const mTitle = $("mTitle");
@@ -281,7 +285,9 @@ function drawProjects(){const list=filter==="全部"?projects:projects.filter(p=
 drawFilters();drawProjects();
 
 let current=null,idx=0;
-function updateImage(){bigImg.src=current.images[idx];bigImg.alt=current.title+" 项目图 "+(idx+1);document.querySelectorAll(".thumb").forEach((t,i)=>t.classList.toggle("active",i===idx))}
+function updateImage(){gallery.classList.add("loading");bigImg.src=current.images[idx];bigImg.alt=current.title+" 项目图 "+(idx+1)+"，共 "+current.images.length+" 张";galleryIndex.textContent=idx+1;galleryTotal.textContent=current.images.length;document.querySelectorAll(".thumb").forEach((t,i)=>t.classList.toggle("active",i===idx));const activeThumb=document.querySelector(".thumb.active");if(activeThumb&&modal.classList.contains("open"))activeThumb.scrollIntoView({behavior:"smooth",block:"nearest",inline:"center"});const nextSrc=current.images[(idx+1)%current.images.length];if(nextSrc){const preload=new Image();preload.src=nextSrc}}
+bigImg.addEventListener("load",()=>gallery.classList.remove("loading"));
+bigImg.addEventListener("error",()=>gallery.classList.remove("loading"));
 function openProject(id){current=projects.find(p=>p.id===id);idx=0;mMeta.textContent=current.en+" · "+current.year;mTitle.textContent=current.title;mSummary.textContent=current.summary;mConcept.textContent=current.concept;mChallenge.textContent=current.challenge;mRole.textContent=current.role;mOutcome.textContent=current.outcome;mTools.textContent=current.tools;processEl.innerHTML=current.process.map(s=>`<article class="step"><b>${s.n}</b><h4>${s.name}</h4><p>${s.text}</p></article>`).join("");
 if(current.video){
   videoFeature.classList.add("show");
@@ -299,8 +305,9 @@ if(current.video){
   projectVideo.load();
   videoError.classList.remove("show");
 }
-thumbs.innerHTML=current.images.map((s,i)=>`<button class="thumb ${i===0?"active":""}" data-i="${i}"><img src="${s}" alt="缩略图"></button>`).join("");thumbs.querySelectorAll("button").forEach(t=>t.onclick=()=>{idx=+t.dataset.i;updateImage()});updateImage();modal.classList.add("open");document.body.style.overflow="hidden"}
+thumbs.innerHTML=current.images.map((s,i)=>`<button class="thumb ${i===0?"active":""}" data-i="${i}" aria-label="查看第 ${i+1} 张图片"><img loading="lazy" decoding="async" src="${s}" alt="${current.title} 缩略图 ${i+1}"></button>`).join("");thumbs.querySelectorAll("button").forEach(t=>t.onclick=()=>{idx=+t.dataset.i;updateImage()});updateImage();modal.classList.add("open");document.body.style.overflow="hidden"}
 function shut(){projectVideo.pause();modal.classList.remove("open");document.body.style.overflow=""}closeBtn.onclick=shut;modal.onclick=e=>{if(e.target===modal)shut()};addEventListener("keydown",e=>{if(e.key==="Escape")shut()});prevBtn.onclick=()=>{idx=(idx-1+current.images.length)%current.images.length;updateImage()};nextBtn.onclick=()=>{idx=(idx+1)%current.images.length;updateImage()};
+let swipeStartX=0;gallery.addEventListener("pointerdown",e=>{swipeStartX=e.clientX});gallery.addEventListener("pointerup",e=>{const dx=e.clientX-swipeStartX;if(Math.abs(dx)<48)return;idx=(idx+(dx<0?1:-1)+current.images.length)%current.images.length;updateImage()});
 
 if(localStorage.getItem("lx-theme")==="dark"||(!localStorage.getItem("lx-theme")&&matchMedia("(prefers-color-scheme:dark)").matches))document.body.classList.add("dark");
 let radarReady=false;
@@ -332,9 +339,9 @@ cv.onpointermove=e=>{const r=cv.getBoundingClientRect(),x=e.clientX-r.left,y=e.c
 radarReady=true;
 setTimeout(drawRadar,100);
 
-const pc=document.querySelector("#particles"),px=pc.getContext("2d");let ps=[];
-function sizeP(){const d=devicePixelRatio||1;pc.width=innerWidth*d;pc.height=innerHeight*d;pc.style.width=innerWidth+"px";pc.style.height=innerHeight+"px";px.setTransform(d,0,0,d,0,0);ps=Array.from({length:Math.min(62,Math.floor(innerWidth/20))},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,vx:(Math.random()-.5)*.16,vy:(Math.random()-.5)*.16,r:Math.random()*1.4+.4}))}
-function anim(){px.clearRect(0,0,innerWidth,innerHeight);for(const p of ps){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>innerWidth)p.vx*=-1;if(p.y<0||p.y>innerHeight)p.vy*=-1;px.beginPath();px.arc(p.x,p.y,p.r,0,Math.PI*2);px.fillStyle=document.body.classList.contains("dark")?"rgba(255,255,255,.18)":"rgba(156,39,176,.16)";px.fill()}requestAnimationFrame(anim)}sizeP();addEventListener("resize",sizeP);if(!matchMedia("(prefers-reduced-motion:reduce)").matches)anim();
+const pc=document.querySelector("#particles"),px=pc.getContext("2d");let ps=[],lastParticleFrame=0;
+function sizeP(){const mobile=innerWidth<760,d=Math.min(devicePixelRatio||1,mobile?1.25:1.75);pc.width=innerWidth*d;pc.height=innerHeight*d;pc.style.width=innerWidth+"px";pc.style.height=innerHeight+"px";px.setTransform(d,0,0,d,0,0);ps=Array.from({length:mobile?14:Math.min(48,Math.floor(innerWidth/24))},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,vx:(Math.random()-.5)*.16,vy:(Math.random()-.5)*.16,r:Math.random()*1.4+.4}))}
+function anim(t=0){requestAnimationFrame(anim);if(document.hidden||modal.classList.contains("open")||t-lastParticleFrame<33)return;lastParticleFrame=t;px.clearRect(0,0,innerWidth,innerHeight);for(const p of ps){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>innerWidth)p.vx*=-1;if(p.y<0||p.y>innerHeight)p.vy*=-1;px.beginPath();px.arc(p.x,p.y,p.r,0,Math.PI*2);px.fillStyle=document.body.classList.contains("dark")?"rgba(255,255,255,.18)":"rgba(156,39,176,.16)";px.fill()}}sizeP();addEventListener("resize",sizeP);if(!matchMedia("(prefers-reduced-motion:reduce)").matches&&innerWidth>=760)anim();else pc.style.display="none";
 </script>
 <div class="qr-viewer" id="qrViewer">
   <div class="qr-viewer-inner">
